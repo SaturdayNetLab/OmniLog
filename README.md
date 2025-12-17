@@ -6,7 +6,7 @@
 
 **Omnilog** is a modern, high-performance log analysis tool designed for System Administrators, DevOps, and Developers. It simplifies debugging by providing a clean, dark-themed interface with powerful search, filtering, and live-monitoring capabilities.
 
-![Screenshot](screenshots/main_preview.png)
+![Omnilog Preview](Screenshot/main_preview.png)
 
 ## 🎯 Key Features
 

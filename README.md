@@ -4,41 +4,41 @@
 ![Python](https://img.shields.io/badge/python-3.x-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-**Omnilog** is a modern, fast, and feature-rich log analysis tool built with Python and CustomTkinter. Designed for Sysadmins, DevOps, and Developers who need to dig through massive log files efficiently.
-
-It features a beautiful dark mode, instant search with regex support, live monitoring, and zero-ghosting synchronized line numbers.
+**Omnilog** is a modern, high-performance log analysis tool designed for System Administrators, DevOps, and Developers. It simplifies debugging by providing a clean, dark-themed interface with powerful search, filtering, and live-monitoring capabilities.
 
 ![Screenshot](screenshots/main_preview.png)
-*(Note: Add a screenshot of your tool here and name it main_preview.png inside a screenshots folder)*
 
 ## ✨ Key Features
 
-* **🎨 Modern UI:** Clean dark theme based on `CustomTkinter`.
-* **drag & Drop:** Simply drag log files into the window to open them.
-* **📋 Clipboard Integration:** Analyze text directly from your clipboard with one click.
-* **🔍 Powerful Search:**
-    * Full Regex support (toggleable).
-    * Keyboard navigation (`<` and `>`) through matches.
-    * Instant hit counting.
-* **⚡ Smart Filtering:**
+* **⚡ Zero-Ghosting Line Numbers:** Custom-built synchronization engine ensures line numbers never overlap or desync, even during heavy filtering.
+* **🔍 Advanced Search:**
+    * **Regex Support:** Toggleable Regex search with useful presets (IPs, Emails, Dates, etc.).
+    * **Navigation:** Cycle through matches instantly.
+* **🛡️ Smart Filtering:**
     * Filter by Log Level (`ERROR`, `WARN`, `INFO`, `DEBUG`).
-    * **Exclude Mode:** Hide lines containing specific noise (e.g., "Heartbeat").
+    * **Exclude Mode:** Hide noise (e.g., "Heartbeat") instantly.
     * **Sync:** Line numbers hide automatically to match the filtered view.
-* **🔴 Live Watch (Tail -f):** Monitor active log files in real-time as they grow.
-* **🛠 Pro Tools:**
-    * **Context Menu:** Right-click to search errors on Google immediately.
-    * **Marking:** Highlight lines in Red, Blue, or Yellow.
-    * **Notes:** Add custom notes to specific lines and view them in a summary.
-    * **Stats:** Visual bar chart of log level distribution.
-* **📂 Export:** Save your filtered results or annotated analysis as `.txt` or `.json`.
+* **🔴 Live Watch (Tail -f):** Monitor active log files in real-time. New lines appear automatically.
+* **🛠 Pro Toolset:**
+    * **Context Search:** Right-click any text to search it on Google immediately.
+    * **Marking & Notes:** Highlight lines (Red/Blue/Yellow) and attach persistent notes.
+    * **Zoom Control:** Adjust font size with `Ctrl + Scroll` or UI buttons.
+    * **Statistics:** Visualize log level distribution with built-in charts.
+* **📂 Export:** Save filtered results or annotated analysis as `.txt` or `.json`.
 
-## 🚀 Installation
+## 📥 Download & Installation
 
-### Option 1: Download EXE (Recommended)
-Go to the [Releases](../../releases) page and download the latest `omnilog.exe`. No Python installation required.
+### Option 1: Standalone EXE (Recommended for Users)
+You don't need Python installed. Just download the latest executable:
 
-### Option 2: Run from Source
-If you want to modify the code or run it via Python:
+1.  Go to the **[Releases](../../releases)** page on the right.
+2.  Download `omnilog.exe`.
+3.  Run it! 
+
+*(Note: Since this is a self-signed tool, Windows Defender might warn you on the first run. Click "Run anyway".)*
+
+### Option 2: Run from Source (For Developers)
+If you want to modify the code or contribute:
 
 1.  Clone the repository:
     ```bash
@@ -56,47 +56,18 @@ If you want to modify the code or run it via Python:
     python omnilog.py
     ```
 
-## 🖱️ Context Menu Integration ("Open with...")
+## 🖱️ Add to Windows Context Menu
 
-You can add Omnilog to your Windows right-click menu to open log files instantly.
+Want to right-click a log file and select **"Open with Omnilog"**?
 
-1.  Build the EXE or use the Python script.
+1.  Download the EXE (or have the Python source ready).
 2.  Open `install_context.py` in a text editor.
-3.  Edit the `exe_path` variable to point to your `omnilog.exe`.
-4.  Run the script as Administrator.
+3.  Update the `exe_path` variable to point to your `omnilog.exe` location.
+4.  Run the script as Administrator once.
 
-## 📦 How to Build (EXE)
+## 📦 Building the EXE
 
-To compile Omnilog into a standalone executable:
+To compile Omnilog yourself using PyInstaller:
 
-1.  Install PyInstaller:
-    ```bash
-    pip install pyinstaller
-    ```
-
-2.  Run the build command:
-    ```bash
-    py -m PyInstaller --noconsole --onefile --collect-all customtkinter --collect-all tkinterdnd2 omnilog.py
-    ```
-
-3.  (Optional) Add an icon:
-    ```bash
-    py -m PyInstaller --noconsole --onefile --icon="app.ico" --collect-all customtkinter --collect-all tkinterdnd2 omnilog.py
-    ```
-
-The output file will be in the `dist/` folder.
-
-## 🛠 Dependencies
-
-* `customtkinter` (UI Framework)
-* `tkinterdnd2` (Drag & Drop support)
-* `chardet` (Encoding detection)
-* `matplotlib` (Statistics charts)
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## 📝 License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+```powershell
+py -m PyInstaller --noconsole --onefile --collect-all customtkinter --collect-all tkinterdnd2 omnilog.py
